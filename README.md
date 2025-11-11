@@ -1,16 +1,71 @@
-# React + Vite
+# i18next-vite-js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal project built with React and Vite that demonstrates how to use i18next for internationalization (i18n) with automatic language detection and GitHub Pages deployment.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Built with React and Vite  
+- Multi-language support (English and Portuguese)  
+- Automatic language detection based on the browser  
+- Simple i18n setup using i18next-http-backend  
+- Automatic deployment using GitHub Actions and GitHub Pages  
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+i18next-vite-js/
+├── public/
+│   └── locales/
+│       ├── en/
+│       │   └── translation.json
+│       └── pt/
+│           └── translation.json
+├── src/
+│   ├── i18n.js
+│   ├── App.jsx
+│   └── main.jsx
+├── vite.config.js
+└── .github/
+    └── workflows/
+        └── deploy.yml
+```
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- The project loads translations from `/public/locales/{{lng}}/translation.json`.  
+- The browser language is detected automatically.  
+- The user can also change the language manually in the interface.
+
+Example:
+
+```jsx
+<button onClick={() => changeLanguage("pt")}>pt</button>
+<button onClick={() => changeLanguage("en")}>en</button>
+```
+
+## Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Deployment
+
+The project is automatically deployed to GitHub Pages using GitHub Actions.  
+Each push to the `main` branch triggers the build and publishes the site to:
+
+```
+https://professor-correa.github.io/i18next-vite-js/
+```
+
+## License
+
+MIT License  
+Created by [Professor Corrêa](https://github.com/professor-correa)
