@@ -8,6 +8,7 @@ function App() {
   console.log(i18n.language)
   return (
     <>
+     <img src="/src/assets/images/professor-correa.svg" alt="avatar do professor corrêa" width="150px" />
      <h1>{t("welcome.title")}</h1>
      <p>{t("welcome.description")} <a href="https://github.com/professor-correa/i18next-vite-js">{t("welcome.link")}</a></p>
      <button onClick={() => changeLanguage("pt")}>pt</button>
